@@ -21,7 +21,7 @@ jobs:
           - {
               name: "ide-site",
               repository: "goorm-dev/ide-site",
-              path: "./src/client/pages/**/*Page.tsx",
+              path: "./src/client/pages/**/*Page.jsx",
             }
 
     steps:
