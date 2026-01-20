@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@internal/cli':
-        specifier: file:/Users/goorm/01_works/workflow-test/internal-cli-0.0.1.tgz
-        version: file:internal-cli-0.0.1.tgz
+        specifier: file:/Users/goorm/01_works/workflow-test/sadf.tgz
+        version: file:sadf.tgz
     devDependencies:
       typescript:
         specifier: ~5.9.3
@@ -244,8 +244,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@internal/cli@file:internal-cli-0.0.1.tgz':
-    resolution: {integrity: sha512-k0ria+YzJk+h6zKD9U1HZuPiyeo2cpNHTiq+pgumbxtljnITJlMJdh+P72z8s7pU5AJOOv8+DNt8B682RneRog==, tarball: file:internal-cli-0.0.1.tgz}
+  '@internal/cli@file:sadf.tgz':
+    resolution: {integrity: sha512-k0ria+YzJk+h6zKD9U1HZuPiyeo2cpNHTiq+pgumbxtljnITJlMJdh+P72z8s7pU5AJOOv8+DNt8B682RneRog==, tarball: file:sadf.tgz}
     version: 0.0.1
     hasBin: true
 
@@ -1083,7 +1083,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.2':
     optional: true
 
-  '@internal/cli@file:internal-cli-0.0.1.tgz':
+  '@internal/cli@file:sadf.tgz':
     dependencies:
       '@babel/core': 7.28.6
       '@babel/types': 7.28.6
