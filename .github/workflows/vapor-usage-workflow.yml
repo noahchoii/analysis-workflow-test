@@ -21,11 +21,11 @@ jobs:
               entries: "./src/Pages/**/*Page.tsx",
             }
           - {
-              name: "ide-site",
-              repository: "goorm-dev/ide-site",
+              name: "new-edu",
+              repository: "goorm-dev/new-edu",
               branch: "develop",
-              workspace: ".",
-              entries: "./src/client/pages/**/*Page.jsx",
+              workspace: "./apps/web",
+              entries: "./src/domains/**/*/*.routes.tsx",
             }
 
     steps:
