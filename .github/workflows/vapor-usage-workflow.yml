@@ -17,15 +17,13 @@ jobs:
               name: "gem-site",
               repository: "goorm-dev/gem-site",
               branch: "main",
-              workspace: "./apps/form",
-              entries: "./src/Pages/**/*Page.tsx",
+              entries: "./apps/form/src/Pages/**/*Page.tsx",
             }
           - {
               name: "new-edu",
               repository: "goorm-dev/new-edu",
               branch: "develop",
-              workspace: "./apps/web",
-              entries: "./src/domains/**/*/*.routes.tsx",
+              entries: "./apps/web/src/domains/**/*/*.routes.tsx",
             }
 
     steps:
@@ -57,9 +55,7 @@ jobs:
       - name: Run Vapor Usage
         # 패키지 설치 후 vapor usage 명령어 실행
         # path는 입력받은 값을 사용하고, repo 이름은 matrix에서 가져옵니다.
-        working-directory: ${{ github.workspace }}/${{ matrix.repo.name }}
         run: |
-          cd ${{ matrix.repo.workspace }}
           npx vapor usage ${{ matrix.repo.entries }} --repo ${{ matrix.repo.name }}
         env:
           SPREAD_SHEET_ID: ${{ secrets.SPREAD_SHEET_ID }}
