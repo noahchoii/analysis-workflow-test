@@ -15,12 +15,12 @@ jobs:
         repo:
           - {
               name: "gem-site",
-              url: "https://github.com/goorm-dev/gem-site.git",
+              repository: "goorm-dev/gem-site",
               path: "./src/Pages/**/*Page.tsx",
             }
           - {
               name: "ide-site",
-              url: "https://github.com/goorm-dev/ide-site.git",
+              repository: "goorm-dev/ide-site",
               path: "./src/client/pages/**/*Page.tsx",
             }
 
@@ -42,15 +42,12 @@ jobs:
         shell: bash
         run: pnpm i --frozen-lockfile
 
-      - name: Configure Git Credentials
-        env:
-          TOKEN: ${{ secrets.PAT }} # 여기에 등록한 Secret 이름을 사용하세요
-        run: |
-          git config --global url."https://${TOKEN}@github.com/".insteadOf "https://github.com/"
-
-      - name: Clone Target Repository
-        # 타겟 저장소를 'target-repo' 디렉토리로 클론합니다.
-        run: git clone ${{ matrix.repo.url }} ${{ matrix.repo.name }}
+      - name: Checkout Target Repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ matrix.repo.repository }}
+          path: ${{ matrix.repo.name }}
+          token: ${{ secrets.PAT }}
 
       - name: Run Vapor Usage
         # 패키지 설치 후 vapor usage 명령어 실행
@@ -62,7 +59,5 @@ jobs:
           echo "Current directory: $(pwd)"
           echo "Current workspace: $GITHUB_WORKSPACE"
           echo "Working directory: $PWD"
-
-          cd ./analysis-workflow-test/ide-site
 
           npx vapor usage ${{ matrix.repo.path }} --repo ${{ matrix.repo.name }}
