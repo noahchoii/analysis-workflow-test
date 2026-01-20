@@ -68,9 +68,8 @@ jobs:
         # 패키지 설치 후 vapor usage 명령어 실행
         # path는 입력받은 값을 사용하고, repo 이름은 matrix에서 가져옵니다.
         run: |
-          pwd
-
-          npx vapor usage ${{ matrix.repo.name }}/${{ matrix.repo.entries }} --repo ${{ matrix.repo.name }}
+          cd ${{ matrix.repo.name }}
+          npx vapor usage ${{ matrix.repo.entries }} --repo ${{ matrix.repo.name }}
         env:
           SPREAD_SHEET_ID: ${{ secrets.SPREAD_SHEET_ID }}
           CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
