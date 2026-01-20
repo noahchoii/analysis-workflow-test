@@ -5,13 +5,11 @@ on:
 
 jobs:
   run-vapor-usage:
-    name: Process ${{ matrix.repo.name }}
+    name: Analyze (${{ matrix.repo.name }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        # 여기에 사용자가 나중에 실제 저장소 목록을 입력하면 됩니다.
-        # sharding/분산 처리를 위해 matrix 전략을 사용합니다.
         repo:
           - {
               name: "gem-site",
@@ -22,9 +20,23 @@ jobs:
           - {
               name: "new-edu",
               repository: "goorm-dev/new-edu",
+              # main 브랜치에 아직 머지되지 않아서 임시로 develop 브랜치로 설정
               branch: "develop",
               entries: "apps/web/src/domains/**/*/*.routes.tsx",
             }
+          - {
+              name: "exp",
+              repository: "goorm-dev/goorm-exp-site",
+              branch: "master",
+              entries: "src/pages/**/index.{tsx,jsx}",
+            }
+          - {
+              name: "ide-site",
+              repository: "goorm-dev/ide-site",
+              branch: "master",
+              entries: "src/client/pages/**/*Page.{jsx,tsx}",
+            }
+            # arkain-studio 추가하기
 
     steps:
       - name: Checkout Workflow Repository
