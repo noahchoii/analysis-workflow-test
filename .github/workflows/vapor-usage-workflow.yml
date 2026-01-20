@@ -63,6 +63,6 @@ jobs:
           echo "Current workspace: $GITHUB_WORKSPACE"
           echo "Working directory: $PWD"
 
-          cd $PWD
+          cd ./analysis-workflow-test/ide-site
 
-          npx vapor usage "${{ matrix.repo.path }}" --repo ${{ matrix.repo.name }}
+          npx vapor usage ${{ matrix.repo.path }} --repo ${{ matrix.repo.name }}
