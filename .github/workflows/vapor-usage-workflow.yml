@@ -17,13 +17,13 @@ jobs:
               name: "gem-site",
               repository: "goorm-dev/gem-site",
               branch: "main",
-              entries: "./apps/form/src/Pages/**/*Page.tsx",
+              entries: "apps/form/src/Pages/**/*Page.tsx",
             }
           - {
               name: "new-edu",
               repository: "goorm-dev/new-edu",
               branch: "develop",
-              entries: "./apps/web/src/domains/**/*/*.routes.tsx",
+              entries: "apps/web/src/domains/**/*/*.routes.tsx",
             }
 
     steps:
@@ -58,7 +58,7 @@ jobs:
         run: |
           pwd
 
-          npx vapor usage ${{ matrix.repo.entries }} --repo ${{ matrix.repo.name }}
+          npx vapor usage ${{ matrix.repo.name }}/${{ matrix.repo.entries }} --repo ${{ matrix.repo.name }}
         env:
           SPREAD_SHEET_ID: ${{ secrets.SPREAD_SHEET_ID }}
           CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
