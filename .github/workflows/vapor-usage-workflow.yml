@@ -16,12 +16,14 @@ jobs:
           - {
               name: "gem-site",
               repository: "goorm-dev/gem-site",
+              branch: "main",
               workspace: "./apps/form",
               entries: "./src/Pages/**/*Page.tsx",
             }
           - {
               name: "ide-site",
               repository: "goorm-dev/ide-site",
+              branch: "develop",
               workspace: ".",
               entries: "./src/client/pages/**/*Page.jsx",
             }
@@ -45,11 +47,12 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Checkout Target Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
+          token: ${{ secrets.PAT }}
           repository: ${{ matrix.repo.repository }}
           path: ${{ matrix.repo.name }}
-          token: ${{ secrets.PAT }}
+          ref: ${{ matrix.repo.branch }}
 
       - name: Run Vapor Usage
         # 패키지 설치 후 vapor usage 명령어 실행
