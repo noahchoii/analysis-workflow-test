@@ -16,12 +16,14 @@ jobs:
           - {
               name: "gem-site",
               repository: "goorm-dev/gem-site",
-              path: "./apps/form/src/Pages/**/*Page.tsx",
+              workspace: "./apps/form",
+              entries: "./src/Pages/**/*Page.tsx",
             }
           - {
               name: "ide-site",
               repository: "goorm-dev/ide-site",
-              path: "./src/client/pages/**/*Page.jsx",
+              workspace: ".",
+              entries: "./src/client/pages/**/*Page.jsx",
             }
 
     steps:
@@ -54,7 +56,7 @@ jobs:
         # path는 입력받은 값을 사용하고, repo 이름은 matrix에서 가져옵니다.
         working-directory: ${{ github.workspace }}/${{ matrix.repo.name }}
         run: |
-          npx vapor usage ${{ matrix.repo.path }} --repo ${{ matrix.repo.name }}
+          npx vapor usage ${{ matrix.repo.entries }} --repo ${{ matrix.repo.name }}
         env:
           SPREAD_SHEET_ID: ${{ secrets.SPREAD_SHEET_ID }}
           CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
