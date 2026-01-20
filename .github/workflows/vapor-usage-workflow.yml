@@ -58,3 +58,4 @@ jobs:
         working-directory: ${{ github.workspace }}/${{ matrix.repo.name }}
         run: |
           echo "Running vapor usage analysis on ${{ matrix.repo.name }}..."
+          npx vapor usage "${{ matrix.repo.path }}" --repo ${{ matrix.repo.name }}
