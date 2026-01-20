@@ -13,7 +13,7 @@
     "vite": "^7.2.4"
   },
   "dependencies": {
-    "@internal/cli": "file:/Users/goorm/01_works/workflow-test/czczc.tgz"
+    "@internal/cli": "file:/Users/goorm/01_works/workflow-test/xczv.tgz"
   },
   "packageManager": "pnpm@10.5.1",
   "engines": {
