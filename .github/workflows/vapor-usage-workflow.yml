@@ -44,7 +44,7 @@ jobs:
 
       - name: Clone Target Repository
         # 타겟 저장소를 'target-repo' 디렉토리로 클론합니다.
-        run: git clone ${{ matrix.repo.url }} target-repo
+        run: git clone ${{ matrix.repo.url }} ${{ matrix.repo.name }}
 
       - name: Run Vapor Usage
         # 패키지 설치 후 vapor usage 명령어 실행
