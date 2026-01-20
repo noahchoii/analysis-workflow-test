@@ -1,0 +1,64 @@
+name: Manual Vapor Usage Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      analysis_path:
+        description: "Path for vapor usage command"
+        required: true
+        default: "./src"
+        type: string
+
+jobs:
+  run-vapor-usage:
+    name: Process ${{ matrix.repo.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 여기에 사용자가 나중에 실제 저장소 목록을 입력하면 됩니다.
+        # sharding/분산 처리를 위해 matrix 전략을 사용합니다.
+        repo:
+          - {
+              name: "gem-site",
+              url: "https://github.com/goorm-dev/gem-site.git",
+              path: "./src/Pages/**/*Page.tsx",
+            }
+          - {
+              name: "ide-site",
+              url: "https://github.com/goorm-dev/ide-site.git",
+              path: "./src/client/pages/**/*Page.tsx",
+            }
+
+    steps:
+      - name: Checkout Workflow Repository
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: "package.json"
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        shell: bash
+        run: pnpm i --frozen-lockfile
+
+      - name: Clone Target Repository
+        # 타겟 저장소를 'target-repo' 디렉토리로 클론합니다.
+        run: git clone ${{ matrix.repo.url }} target-repo
+
+      - name: Run Vapor Usage
+        # 패키지 설치 후 vapor usage 명령어 실행
+        # path는 입력받은 값을 사용하고, repo 이름은 matrix에서 가져옵니다.
+        run: |
+          echo "Running vapor usage analysis on ${{ matrix.repo.name }}..."
+          # 실제 명령어가 실행되도록 아래 주석을 해제하거나 수정해서 사용하세요.
+          # npx vapor usage ${{ inputs.analysis_path }} --repo ${{ matrix.repo.name }}
+
+          # 현재는 더미 실행 로그만 출력합니다.
+          # pnpm exec vapor usage ${{ inputs.analysis_path }} --repo ${{ matrix.repo.name }} || echo "vapor command failed or not found, but continuing for demo"
