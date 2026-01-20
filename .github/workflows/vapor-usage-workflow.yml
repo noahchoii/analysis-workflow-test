@@ -61,4 +61,5 @@ jobs:
         run: |
           echo "Running vapor usage analysis on ${{ matrix.repo.name }}..."
           # 실제 명령어가 실행되도록 아래 주석을 해제하거나 수정해서 사용하세요.
+          pwd
           npx vapor usage ${{ matrix.repo.path }} --repo ${{ matrix.repo.name }}
