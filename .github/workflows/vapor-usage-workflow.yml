@@ -59,4 +59,11 @@ jobs:
           echo "Running vapor usage analysis on ${{ matrix.repo.name }}..."
           cd ${{ matrix.repo.name }}
           pwd
-          npx vapor usage ${{ matrix.repo.path }} --repo ${{ matrix.repo.name }}
+
+          echo "=== Directory Structure Check ==="
+          # 경로 확인을 위해 src 폴더 하위 4뎁스까지 디렉토리 구조 출력
+          find src -maxdepth 4 -type d 2>/dev/null || echo "Detail: src directory not found or find command failed"
+          echo "================================="
+
+          # 따옴표를 추가하여 쉘의 glob 확장을 방지하고 CLI에 패턴을 그대로 전달
+          npx vapor usage "${{ matrix.repo.path }}" --repo ${{ matrix.repo.name }}
