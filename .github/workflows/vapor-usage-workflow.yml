@@ -16,7 +16,7 @@ jobs:
           - {
               name: "gem-site",
               repository: "goorm-dev/gem-site",
-              path: "./src/Pages/**/*Page.tsx",
+              path: "./apps/form/src/Pages/**/*Page.tsx",
             }
           - {
               name: "ide-site",
