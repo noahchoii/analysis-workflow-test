@@ -42,6 +42,11 @@ jobs:
         shell: bash
         run: pnpm i --frozen-lockfile
 
+      - name: Configure Git
+        run: |
+          git config user.name "$(git log -n 1 --pretty=format:%an)"
+          git config user.email "$(git log -n 1 --pretty=format:%ae)"
+
       - name: Clone Target Repository
         # 타겟 저장소를 'target-repo' 디렉토리로 클론합니다.
         run: git clone ${{ matrix.repo.url }} ${{ matrix.repo.name }}
