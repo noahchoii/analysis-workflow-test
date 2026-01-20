@@ -15,25 +15,29 @@ jobs:
               name: "gem-site",
               repository: "goorm-dev/gem-site",
               branch: "main",
-              entries: "apps/form/src/Pages/**/*Page.tsx",
+              workspace: "apps/form",
+              entries: "src/Pages/**/*Page.tsx",
             }
           - {
               name: "new-edu",
               repository: "goorm-dev/new-edu",
               # main 브랜치에 아직 머지되지 않아서 임시로 develop 브랜치로 설정
               branch: "develop",
-              entries: "apps/web/src/domains/**/*/*.routes.tsx",
+              workspace: "apps/web",
+              entries: "src/domains/**/*/*.routes.tsx",
             }
           - {
               name: "exp",
               repository: "goorm-dev/goorm-exp-site",
               branch: "master",
+              workspace: ".",
               entries: "src/pages/**/index.{tsx,jsx}",
             }
           - {
               name: "ide-site",
               repository: "goorm-dev/ide-site",
               branch: "master",
+              workspace: ".",
               entries: "src/client/pages/**/*Page.{jsx,tsx}",
             }
             # arkain-studio 추가하기
@@ -67,9 +71,9 @@ jobs:
       - name: Run Vapor Usage
         # 패키지 설치 후 vapor usage 명령어 실행
         # path는 입력받은 값을 사용하고, repo 이름은 matrix에서 가져옵니다.
+        working-directory: ${{ matrix.repo.name }}/${{ matrix.repo.workspace }}
         run: |
-          shopt -s globstar
-          npx vapor usage "${{ matrix.repo.name }}/${{ matrix.repo.entries }}" --repo ${{ matrix.repo.name }}
+          npx vapor usage "${{ matrix.repo.entries }}" --repo ${{ matrix.repo.name }}
         env:
           SPREAD_SHEET_ID: ${{ secrets.SPREAD_SHEET_ID }}
           CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
