@@ -14,5 +14,9 @@
   },
   "dependencies": {
     "@internal/cli": "file:/Users/goorm/01_works/workflow-test/internal-cli-0.0.1.tgz"
+  },
+  "packageManager": "pnpm@10.5.1",
+  "engines": {
+    "node": ">=20.19"
   }
 }
