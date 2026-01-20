@@ -52,14 +52,11 @@ jobs:
         # 타겟 저장소를 'target-repo' 디렉토리로 클론합니다.
         run: git clone ${{ matrix.repo.url }} ${{ matrix.repo.name }}
 
-      - name: Navigate to Target Repository
-        run: cd ${{ matrix.repo.name }}
-
       - name: Run Vapor Usage
         # 패키지 설치 후 vapor usage 명령어 실행
         # path는 입력받은 값을 사용하고, repo 이름은 matrix에서 가져옵니다.
         run: |
           echo "Running vapor usage analysis on ${{ matrix.repo.name }}..."
-          # 실제 명령어가 실행되도록 아래 주석을 해제하거나 수정해서 사용하세요.
+          cd ${{ matrix.repo.name }}
           pwd
           npx vapor usage ${{ matrix.repo.path }} --repo ${{ matrix.repo.name }}
