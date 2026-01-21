@@ -73,6 +73,7 @@ jobs:
         # path는 입력받은 값을 사용하고, repo 이름은 matrix에서 가져옵니다.
         working-directory: ${{ matrix.repo.name }}
         run: |
+          echo "current path: $(pwd)"
           npx vapor usage "${{ matrix.repo.directory }}/${{ matrix.repo.entries }}" --repo ${{ matrix.repo.name }} --directory ${{ matrix.repo.directory }}
         env:
           SPREAD_SHEET_ID: ${{ secrets.SPREAD_SHEET_ID }}
