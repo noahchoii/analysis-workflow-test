@@ -15,25 +15,29 @@ jobs:
               name: "gem-site",
               repository: "goorm-dev/gem-site",
               branch: "main",
-              entries: "apps/form/src/Pages/**/*Page.tsx",
+              directory: "apps/form",
+              entries: "src/Pages/**/*Page.tsx",
             }
           - {
               name: "new-edu",
               repository: "goorm-dev/new-edu",
               # main 브랜치에 아직 머지되지 않아서 임시로 develop 브랜치로 설정
               branch: "develop",
-              entries: "apps/web/src/domains/**/*/*.routes.tsx",
+              directory: "apps/web",
+              entries: "src/domains/**/*/*.routes.tsx",
             }
           - {
               name: "exp",
               repository: "goorm-dev/goorm-exp-site",
               branch: "master",
+              directory: ".",
               entries: "src/pages/**/index.{tsx,jsx}",
             }
           - {
               name: "ide-site",
               repository: "goorm-dev/ide-site",
               branch: "master",
+              directory: ".",
               entries: "src/client/pages/**/*Page.{jsx,tsx}",
             }
             # arkain-studio 추가하기
@@ -69,7 +73,7 @@ jobs:
         # path는 입력받은 값을 사용하고, repo 이름은 matrix에서 가져옵니다.
         working-directory: ${{ matrix.repo.name }}
         run: |
-          npx vapor usage "${{ matrix.repo.entries }}" --repo ${{ matrix.repo.name }}
+          npx vapor usage "${{ matrix.repo.directory }}/${{ matrix.repo.entries }}" --repo ${{ matrix.repo.name }} --directory ${{ matrix.repo.directory }}
         env:
           SPREAD_SHEET_ID: ${{ secrets.SPREAD_SHEET_ID }}
           CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
