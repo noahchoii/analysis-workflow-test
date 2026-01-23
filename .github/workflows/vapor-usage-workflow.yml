@@ -37,7 +37,7 @@ jobs:
               name: "ide-site",
               repository: "goorm-dev/ide-site",
               branch: "master",
-              workspace: ".",
+              tsconfigPath: "src/client",
               entries: "src/client/pages/**/*Page.{jsx,tsx}",
             }
             # arkain-studio 추가하기
@@ -74,7 +74,11 @@ jobs:
         working-directory: ${{ matrix.repo.name }}
         run: |
           echo "current path: $(pwd)"
-          npx vapor usage "${{ matrix.repo.workspace }}/${{ matrix.repo.entries }}" --repo ${{ matrix.repo.name }} --workspace ${{ matrix.repo.workspace }}
+          npx vapor usage "${{ matrix.repo.workspace }}/${{ matrix.repo.entries }}" --repo ${{ matrix.repo.name }} \
+            ${ matrix.repo.workspace && echo "--workspace " + matrix.repo.workspace } \
+            ${ matrix.repo.tsconfigPath && echo "--tsconfigPath " + matrix.repo.tsconfigPath } |
+            ${ matrix.repo.packageJsonPath && echo "--packageJsonPath " + matrix.repo.packageJsonPath } |
+
         env:
           SPREAD_SHEET_ID: ${{ secrets.SPREAD_SHEET_ID }}
           CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
