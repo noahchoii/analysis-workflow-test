@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@internal/cli':
-        specifier: file:/Users/goorm/01_works/workflow-test/cvzs.tgz
-        version: file:cvzs.tgz
+        specifier: file:/Users/goorm/01_works/workflow-test/asdfasdf.tgz
+        version: file:asdfasdf.tgz
     devDependencies:
       typescript:
         specifier: ~5.9.3
@@ -244,8 +244,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@internal/cli@file:cvzs.tgz':
-    resolution: {integrity: sha512-Vc+MEhaTgbsH/i20M9v1+oTqHsJplhHttT7mFQqGaGirO2SSkNTT284JvpN01BhqD2yFliZ9TnqATcJy96zzqw==, tarball: file:cvzs.tgz}
+  '@internal/cli@file:asdfasdf.tgz':
+    resolution: {integrity: sha512-8R5pjV69o3Ue+a564FJm2TdbipXzIwnlBuVflmQIhHZ9rDF5Aog0+PTrQpRgjZb5aL4JhYUkvDh4kSg1JuWhgQ==, tarball: file:asdfasdf.tgz}
     version: 0.0.1
     hasBin: true
 
@@ -699,6 +699,9 @@ packages:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  minimist@1.2.8:
+    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+
   minipass@7.1.2:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -821,9 +824,17 @@ packages:
     resolution: {integrity: sha512-gmBGslpoQJtgnMAvOVqGZpEz9dyoKTCzy2nfz/n8aIFhN/jCE/rCmcxabB6jOOHV+0WNnylOxaxBQPSvcWklhA==}
     engines: {node: '>=12'}
 
+  strip-bom@3.0.0:
+    resolution: {integrity: sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==}
+    engines: {node: '>=4'}
+
   tinyglobby@0.2.15:
     resolution: {integrity: sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==}
     engines: {node: '>=12.0.0'}
+
+  tsconfig-paths@4.2.0:
+    resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
+    engines: {node: '>=6'}
 
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
@@ -1083,7 +1094,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.2':
     optional: true
 
-  '@internal/cli@file:cvzs.tgz':
+  '@internal/cli@file:asdfasdf.tgz':
     dependencies:
       '@babel/core': 7.28.6
       '@babel/types': 7.28.6
@@ -1093,6 +1104,7 @@ snapshots:
       glob: 13.0.0
       googleapis: 170.1.0
       picocolors: 1.1.1
+      tsconfig-paths: 4.2.0
     transitivePeerDependencies:
       - supports-color
 
@@ -1530,6 +1542,8 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.2
 
+  minimist@1.2.8: {}
+
   minipass@7.1.2: {}
 
   ms@2.1.3: {}
@@ -1673,10 +1687,18 @@ snapshots:
     dependencies:
       ansi-regex: 6.2.2
 
+  strip-bom@3.0.0: {}
+
   tinyglobby@0.2.15:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
+
+  tsconfig-paths@4.2.0:
+    dependencies:
+      json5: 2.2.3
+      minimist: 1.2.8
+      strip-bom: 3.0.0
 
   typescript@5.9.3: {}
 
