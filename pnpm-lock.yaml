@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@internal/cli':
-        specifier: file:/Users/goorm/01_works/workflow-test/ddc.tgz
-        version: file:ddc.tgz
+        specifier: file:/Users/goorm/01_works/workflow-test/avbv.tgz
+        version: file:avbv.tgz
     devDependencies:
       typescript:
         specifier: ~5.9.3
@@ -244,8 +244,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@internal/cli@file:ddc.tgz':
-    resolution: {integrity: sha512-pSC6TPWGhooapwTMFZQGBtMdVtzHkOL+Do2khnlpC/1tqGwkxLWDUNAU6+dhe82aJSxKY6jtL2gX39lBQY+KXw==, tarball: file:ddc.tgz}
+  '@internal/cli@file:avbv.tgz':
+    resolution: {integrity: sha512-pOBTEKII5DW75NaOz2xm3egxD/KKECci52PjkYDsBVZTmMA4eTtUhInycCFe+H5B7HKIu7wWMhxiIZ4SFD/ZNQ==, tarball: file:avbv.tgz}
     version: 0.0.1
     hasBin: true
 
@@ -595,6 +595,9 @@ packages:
     resolution: {integrity: sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==}
     engines: {node: '>= 0.4'}
 
+  get-tsconfig@4.13.0:
+    resolution: {integrity: sha512-1VKTZJCwBrvbd+Wn3AOgQP/2Av+TfTCOlE4AcRJE72W1ksZXbAx8PPBR9RzgTeSPzlPMHrbANMH3LbltH73wxQ==}
+
   glob@10.5.0:
     resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
     hasBin: true
@@ -759,6 +762,9 @@ packages:
   qs@6.14.1:
     resolution: {integrity: sha512-4EK3+xJl8Ts67nLYNwqw/dsFVnCf+qR7RgXSK9jEEm9unao3njwMDdmsdvoKBKHzxd7tCYz5e5M+SnMjdtXGQQ==}
     engines: {node: '>=0.6'}
+
+  resolve-pkg-maps@1.0.0:
+    resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
 
   rimraf@5.0.10:
     resolution: {integrity: sha512-l0OE8wL34P4nJH/H2ffoaniAokM2qSmrtXHmlpvYr5AVVX8msAyW0l8NVJFDxlSK4u3Uh/f41cQheDVdnYijwQ==}
@@ -1094,13 +1100,14 @@ snapshots:
   '@esbuild/win32-x64@0.27.2':
     optional: true
 
-  '@internal/cli@file:ddc.tgz':
+  '@internal/cli@file:avbv.tgz':
     dependencies:
       '@babel/core': 7.28.6
       '@babel/types': 7.28.6
       commander: 11.1.0
       dotenv: 17.2.3
       fs-extra: 11.3.3
+      get-tsconfig: 4.13.0
       glob: 13.0.0
       googleapis: 170.1.0
       picocolors: 1.1.1
@@ -1417,6 +1424,10 @@ snapshots:
       dunder-proto: 1.0.1
       es-object-atoms: 1.1.1
 
+  get-tsconfig@4.13.0:
+    dependencies:
+      resolve-pkg-maps: 1.0.0
+
   glob@10.5.0:
     dependencies:
       foreground-child: 3.3.1
@@ -1589,6 +1600,8 @@ snapshots:
   qs@6.14.1:
     dependencies:
       side-channel: 1.1.0
+
+  resolve-pkg-maps@1.0.0: {}
 
   rimraf@5.0.10:
     dependencies:
