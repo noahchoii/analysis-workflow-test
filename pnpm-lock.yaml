@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@internal/cli':
-        specifier: file:/Users/goorm/01_works/workflow-test/cli-with-html.tgz
-        version: file:cli-with-html.tgz
+        specifier: file:/Users/goorm/01_works/workflow-test/finally.tgz
+        version: file:finally.tgz
     devDependencies:
       typescript:
         specifier: ~5.9.3
@@ -244,8 +244,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@internal/cli@file:cli-with-html.tgz':
-    resolution: {integrity: sha512-xuIzJURmft48XMXAXLMZ/LYYanY+D3obaDdycUq1lvm/Bl1itg9L2vFoXXs/Ml/ISO3t8u3fRq2C4LlalsuVDQ==, tarball: file:cli-with-html.tgz}
+  '@internal/cli@file:finally.tgz':
+    resolution: {integrity: sha512-rPI9xmj6L9YN/CDCb08YaIySxd5ep8pWdMRfKtV8jBvrxILMKwpfdr4KuDcfNAyu1RLGYfwGiSDBeL3pOOOfcg==, tarball: file:finally.tgz}
     version: 0.0.1
     hasBin: true
 
@@ -1095,7 +1095,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.2':
     optional: true
 
-  '@internal/cli@file:cli-with-html.tgz':
+  '@internal/cli@file:finally.tgz':
     dependencies:
       '@babel/core': 7.28.6
       '@babel/types': 7.28.6
