@@ -78,9 +78,8 @@ jobs:
           ARGS=""
           [ -n "${{ matrix.repo.workspace }}" ] && ARGS="$ARGS --workspace ${{ matrix.repo.workspace }}"
           [ -n "${{ matrix.repo.tsconfigPath }}" ] && ARGS="$ARGS --tsconfigPath ${{ matrix.repo.tsconfigPath }}"
-          [ -n "${{ matrix.repo.packageJsonPath }}" ] && ARGS="$ARGS --packageJsonPath ${{ matrix.repo.packageJsonPath }}"
 
-          npx vapor usage "${{ matrix.repo.workspace }}/${{ matrix.repo.entries }}" --repo ${{ matrix.repo.name }} --packageNames @vapor-ui/core @goorm-dev/vapor-components --html $ARGS
+          npx vapor usage "${{ matrix.repo.workspace }}/${{ matrix.repo.entries }}" --packageNames @vapor-ui/core @goorm-dev/vapor-components --html $ARGS
 
         env:
           SPREAD_SHEET_ID: ${{ secrets.SPREAD_SHEET_ID }}
